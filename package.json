@@ -9,7 +9,18 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "vue": "^2.5.17"
+    "axios": "^0.18.0",
+    "d3": "^5.7.0",
+    "google-maps": "^3.3.0",
+    "imports-loader": "^0.8.0",
+    "moment": "^2.22.2",
+    "moment-timezone": "^0.5.21",
+    "solar-calc": "^1.1.0",
+    "svgjs": "^2.6.2",
+    "vue": "^2.5.17",
+    "vue-google-autocomplete": "^1.1.0",
+    "vue-head": "^2.0.12",
+    "vue-loading-spinner": "^1.0.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.4",
@@ -19,6 +30,8 @@
     "@vue/eslint-config-standard": "^3.0.4",
     "@vue/test-utils": "^1.0.0-beta.20",
     "chai": "^4.1.2",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^2.7.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
     "vue-template-compiler": "^2.5.17"

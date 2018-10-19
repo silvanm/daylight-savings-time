@@ -1,28 +1,28 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app" class="container">
+        <div class="row">
+            <div class="col ">
+                <h1 style="margin-top: 1rem">Does Daylight Savings Time save your daylight?</h1>
+                <DSTViewer :tooltip-enabled="true"/>
+
+                <p><a href="https://mühlemann.ch">Silvan Mühlemann</a>, 17. October 2018.</p>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import DSTViewer from "./components/DSTViewer";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    DSTViewer
   }
-}
+};
 </script>
 
 <style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
