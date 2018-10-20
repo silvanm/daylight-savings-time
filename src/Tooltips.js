@@ -1,4 +1,4 @@
-/* Handles the display of sunrise and sunset */
+/* Handles the display of sunrise and sunset tooltips */
 
 import d3 from "@/assets/d3";
 import { event as currentEvent } from "d3";

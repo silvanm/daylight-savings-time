@@ -15,6 +15,7 @@
         <p v-show="status=='GelocationFailed'"><b>⚠️ Automatic location of your device failed. Select
             your location manually:</b></p>
         <div id="results" v-show="status=='Done'">
+            <p>So, does it really help you get you does of sunlight?</p>
             <h2><span v-if="Math.round(savedHours)>0     ">Yes, it does.</span>
             <span v-else>Nope.</span>
             </h2>
@@ -450,7 +451,7 @@ export default {
 .line-sunrise,
 .sun-color {
   fill: #ffde04;
-  opacity: 0.5;
+  opacity: 1;
 }
 .workhours {
   cursor: row-resize;
