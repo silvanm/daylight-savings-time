@@ -1,12 +1,13 @@
 <template>
     <div>
 
-        <p>There is currently a <a href="https://edition.cnn.com/2018/08/31/europe/eu-abolish-daylight-saving-time-intl/index.html">discussion in the EU</a> whether to abolish "daylight savings time" where the clocks
+        <p>There is currently a <a href="https://edition.cnn.com/2018/08/31/europe/eu-abolish-daylight-saving-time-intl/index.html">discussion in the EU</a> whether to abolish
+            <a href="https://en.wikipedia.org/wiki/Daylight_saving_time">daylight saving time</a> where the clocks
             are put forward one hour in March and back again in October.
-            The rationale behind "DST" is that you get as much sunlight during your <em>work hours</em>
+            One of the rationales behind "DST" is that you get as much sunlight during your <em>work hours</em>
             as possible.
             </p>
-        <p>With this app you can check whether daylight savings time makes sense for you.
+        <p>With this app you can check whether daylight saving time makes sense for you.
              It calculates how many hours of sunlight you get during your usual work hours based
             on the location selected below.
         </p>
@@ -15,21 +16,21 @@
         <p v-show="status=='GelocationFailed'"><b>⚠️ Automatic location of your device failed. Select
             your location manually:</b></p>
         <div id="results" v-show="status=='Done'">
-            <p>So, does it really help you get you does of sunlight?</p>
+            <p>So, does it really help you get you daily dose of sunlight?</p>
             <h2><span v-if="Math.round(savedHours)>0     ">Yes, it does.</span>
             <span v-else>Nope.</span>
             </h2>
-        <p>Daylight savings time where the clocks are moved by {{config.dstOffset}} hour in summer will
+        <p>Daylight saving time where the clocks are moved by {{config.dstOffset}} hour in summer will
             <span v-if="Math.round(savedHours)>0">
             get you <strong>{{Math.round(savedHours)}}</strong>
-            additional hours of daylight. For you, daylight savings time <strong>does</strong> make sense.
+            additional hours of daylight. For you, daylight saving time <strong>does</strong> make sense.
             </span>
             <span v-if="Math.round(savedHours)==0">
-                not give you more hours of sunlight. For you, daylight savings time does <strong>not</strong> make sense.
+                not give you more hours of sunlight. For you, daylight saving time does <strong>not</strong> make sense.
             </span>
             <span v-if="Math.round(savedHours)<0">
             deprive you from <strong>{{Math.round(-savedHours)}}</strong>
-                hours of sunlight. For yo,u daylight savings time does <strong>not</strong> make sense.
+                hours of sunlight. For you, daylight saving time does <strong>not</strong> make sense.
             </span>
                 </p>
         <p>Your work hours are assumed to be between <strong>{{Math.round(config.workday.startHour)}}:00 and
@@ -151,12 +152,12 @@ export default {
         timezoneOffset: 1,
         dstOffset: 1,
         dstStart: {
-          month: 4,
-          day: 22
+          month: 3,
+          day: 25
         },
         dstEnd: {
           month: 10,
-          day: 22
+          day: 28
         },
         workday: {
           startHour: 8,
@@ -336,11 +337,32 @@ export default {
       this.workhoursRect = new WorkhoursRect(
         this.chart,
         MARGIN,
+        this.WIDTH,
         this.config.workday,
         this.yScale
       );
 
       this.addLegend();
+
+      // line showing Today
+      let todayX = this.xScale(new Date());
+      let scaleY = this.yScale(0);
+      this.chart
+        .append("svg:polygon")
+        .attr("id", "today-line")
+        .attr(
+          "points",
+          `${todayX},${scaleY} ${todayX - 5},${scaleY - 10} ${todayX +
+            5},${scaleY - 10}`
+        )
+        .attr("style", "fill:#00f;stroke-width:0;opacity:0.5");
+
+      this.chart
+        .append("svg:text")
+        .attr("id", "today-line")
+        .attr("x", todayX)
+        .attr("y", scaleY - 15)
+        .text("Today");
 
       this.graphInited = true;
 

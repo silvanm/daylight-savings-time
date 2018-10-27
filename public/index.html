@@ -1,27 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-10357230-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag('js', new Date());
+
+      gtag('config', 'UA-10357230-7');
+    </script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <meta property="og:url" content="https://xn--mhlemann-65a.ch/">
-    <meta property="og:title" content="Does Daylight Savings Time save your daylight?">
+    <meta property="og:url" content="https://daylight-saving-time.muehlemann.com/">
+    <meta property="og:title" content="Does Daylight Saving Time save your daylight?">
     <meta property="og:image:width" content="714">
     <meta property="og:image:height" content="531">
     <meta property="og:description"
-          content="Check whether daylight savings time makes sense for you. It calculates how many hours of sunlight you get during your usual work hours based
+          content="Check whether daylight saving time makes sense for you. It calculates how many hours of sunlight you get during your usual work hours based
             on your location.">
-    <meta property="og:image" content="https://xn--mhlemann-65a.ch/reinforcejs/beetles/img/og-image.png?3">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta property="og:image" content="https://daylight-savings-time.muehlemann.com/og-image.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2oAeymTY2czFp8QN1qB9Yuc9qOoZ8DRo&libraries=places"></script>
-    <title>Does Daylight Savings Time save your daylight?</title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but daylight-savings-time2 doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+    <title>Does Daylight Saving Time save your daylight?</title>
+</head>
+<body>
+<noscript>
+    <strong>We're sorry but daylight-savings-time2 doesn't work properly without JavaScript enabled. Please enable it to
+        continue.</strong>
+</noscript>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+</body>
 </html>

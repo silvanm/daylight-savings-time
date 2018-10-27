@@ -55,13 +55,13 @@ export default class Tooltips {
           .attr("x1", currentEvent.x - svgXOffset)
           .attr("y1", this.yScale(focusedRecord["sunriseHour"]) + 5)
           .attr("x2", currentEvent.x - svgXOffset)
-          .attr("y2", this.height - this.margin - 40)
+          .attr("y2", this.height - this.margin - 60)
           .attr("opacity", 0.5);
 
         this.tooltip
           .style("opacity", 1)
           .style("left", currentEvent.x + "px")
-          .style("top", this.height - this.margin - 40 + svgYOffset + "px")
+          .style("top", this.height - this.margin - 60 + svgYOffset + "px")
           .html(
             "Sunrise: " +
               moment(focusedRecord.solar["sunrise"]).format("kk:mm") +

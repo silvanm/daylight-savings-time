@@ -5,9 +5,10 @@ import { event as currentEvent } from "d3";
 export default class WorkhoursRect {
   state = "idle";
 
-  constructor(chart, margin, workday, yScale) {
+  constructor(chart, margin, width, workday, yScale) {
     this.chart = chart;
     this.margin = margin;
+    this.width = width;
     this.workday = workday;
     this.yScale = yScale;
     this.chart
@@ -15,6 +16,24 @@ export default class WorkhoursRect {
       .attr("class", "workhours")
       .attr("opacity", 0.5)
       .attr("fill", "#00f");
+
+    this.chart
+      .append("svg:line")
+      .attr("x1", this.width / 2 - 5)
+      .attr("x2", this.width / 2 + 5)
+      .attr("y1", this.yScale(this.workday.endHour) + 5)
+      .attr("y2", this.yScale(this.workday.endHour) + 5)
+      .attr("class", "draghandle-endhour")
+      .attr("stroke", "#000");
+
+    this.chart
+      .append("svg:line")
+      .attr("x1", this.width / 2 - 5)
+      .attr("x2", this.width / 2 + 5)
+      .attr("y1", this.yScale(this.workday.startHour) - 5)
+      .attr("y2", this.yScale(this.workday.startHour) - 5)
+      .attr("class", "draghandle-starthour")
+      .attr("stroke", "#000");
 
     this.chart.call(
       d3
@@ -34,6 +53,14 @@ export default class WorkhoursRect {
         "height",
         this.yScale(this.workday.startHour) - this.yScale(this.workday.endHour)
       );
+    this.chart
+      .select(".draghandle-endhour")
+      .attr("y1", this.yScale(this.workday.endHour) + 5)
+      .attr("y2", this.yScale(this.workday.endHour) + 5);
+    this.chart
+      .select(".draghandle-starthour")
+      .attr("y1", this.yScale(this.workday.startHour) - 5)
+      .attr("y2", this.yScale(this.workday.startHour) - 5);
   }
 
   /**
