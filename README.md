@@ -1,5 +1,3 @@
 # daylight-savings-time.muehlemann.com
 
-
-
-Note: The build has a different repository.
+Hosting is here: https://console.firebase.google.com/u/0/project/dailylight-savings-time/
