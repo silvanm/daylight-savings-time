@@ -1,25 +1,30 @@
 <template>
     <div>
 
-        <p>There is currently a <a href="https://edition.cnn.com/2018/08/31/europe/eu-abolish-daylight-saving-time-intl/index.html">discussion in the EU</a> whether to abolish
+      <p>
+        This app helps you determine if <a href="https://en.wikipedia.org/wiki/Daylight_saving_time">daylight saving time (DST)</a> is beneficial for you based on your location and work hours.
+        </p>
+      <p>
+        In the EU, there is an <a href="https://edition.cnn.com/2018/08/31/europe/eu-abolish-daylight-saving-time-intl/index.html">ongoing discussion</a> about abolishing DST, where clocks are moved forward one hour in March and
+        back again in October. One of the main arguments for DST is that it allows people to have more sunlight during their
+        work hours.
+      </p>
+<p>There is currently a <a href="https://edition.cnn.com/2018/08/31/europe/eu-abolish-daylight-saving-time-intl/index.html">discussion in the EU</a> whether to abolish
             <a href="https://en.wikipedia.org/wiki/Daylight_saving_time">daylight saving time</a> where the clocks
             are put forward one hour in March and back again in October.
             One of the rationales behind "DST" is that you get as much sunlight during your <em>work hours</em>
             as possible.
             </p>
-        <p>With this app you can check whether daylight saving time makes sense for you.
-             It calculates how many hours of sunlight you get during your usual work hours based
-            on the location selected below.
-        </p>
         <div id="spinner" v-show="status!='Done' && status!='GelocationFailed'"><p>Attempting to determine your location... <Spinner style="vertical-align: middle"> </Spinner></p>
         </div>
         <p v-show="status=='GelocationFailed'"><b>⚠️ Automatic location of your device failed. Select
             your location manually:</b></p>
         <div id="results" v-show="status=='Done'">
             <p>So, does it really help you get you daily dose of sunlight?</p>
-            <h2><span v-if="Math.round(savedHours)>0     ">Yes, it does.</span>
-            <span v-else>Nope.</span>
+            <h2><span v-if="Math.round(savedHours)>0     ">Yes, DST is beneficial for you.</span>
+            <span v-else>No, DST is not beneficial for you.</span>
             </h2>
+
         <p>Daylight saving time where the clocks are moved by {{config.dstOffset}} hour in summer will
             <span v-if="Math.round(savedHours)>0">
             get you <strong>{{Math.round(savedHours)}}</strong>
@@ -35,9 +40,8 @@
                 </p>
         <p>Your work hours are assumed to be between <strong>{{Math.round(config.workday.startHour)}}:00 and
             {{Math.round(config.workday.endHour)}}:00</strong> and are
-        visualized in gray/blue in the graph below. Drag the edges of the gray box below to change those settings.</p>
-        <p>To calculate this, the sunrise and sunset times for <strong>{{this.location.name}}</strong> have been
-        used. To change this, use the field below.</p>
+        visualized in gray/blue in the graph below. You can adjust these hours by dragging the edges of the gray box.</p>
+        <p>The sunrise and sunset times used in this calculation are based on the location <strong>{{this.location.name}}</strong>. To change the location, enter a new city or country in the field below.</p>
         </div>
 
         <form>
